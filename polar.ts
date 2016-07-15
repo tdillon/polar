@@ -35,7 +35,7 @@ class PolarClock {
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     this.data.forEach(i => {
       this.ctx.lineWidth = i.opts.width;
-      this.ctx.strokeStyle = `hsl(${i.ring.percentage * 360}, 100%, 50%)`;      //i.opts.fg;
+      this.ctx.strokeStyle = `rgba(255,255,255, ${i.ring.percentage})` //`hsl(${i.ring.percentage * 360}, 100%, 50%)`;      //i.opts.fg;
       this.ctx.beginPath();
       this.ctx.arc(this.center.x, this.center.y, i.opts.radius, i.ring.start, i.ring.end);
       this.ctx.stroke();
