@@ -1,0 +1,18 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+  "node"
+before_install:
+  #!/bin/bash
+  - set -e
+  - echo "machine github.com" >> ~/.netrc
+  - echo "   login tdillon" >> ~/.netrc
+  - echo "   password $GH_TOKEN" >> ~/.netrc
+script:
+  - npm run build
+after_success:
+  - git checkout gh-pages
+  - rm tsconfig.json && rm .travis.yml && rm package.json
+  - git commit -a -m "travis-ci deployment"
+  - git push origin gh-pages
