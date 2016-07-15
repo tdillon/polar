@@ -13,6 +13,7 @@ script:
   - npm run build
 after_success:
   - git checkout -b gh-pages
-  - rm tsconfig.json && rm .travis.yml && rm package.json
-  - git commit -a -m "travis-ci deployment"
-  - git push origin gh-pages
+  - rm tsconfig.json .travis.yml package.json .gitignore
+  - git add --all
+  - git commit -m "travis-ci deployment"
+  - git push --force origin gh-pages
