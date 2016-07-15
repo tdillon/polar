@@ -12,10 +12,7 @@ before_install:
 script:
   - npm run build
 after_success:
-  - git push origin --delete gh-pages
-  #- git config --global user.name tdillon
-  #- git config --global user.email tdillon@users.noreply.github.com
-  #- git checkout -b gh-pages
-  #- rm tsconfig.json && rm .travis.yml && rm package.json
-  #- git commit -a -m "travis-ci deployment"
-  #- git push origin gh-pages
+  - git checkout -b gh-pages
+  - rm tsconfig.json && rm .travis.yml && rm package.json
+  - git commit -a -m "travis-ci deployment"
+  - git push origin gh-pages
